@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path')
 
@@ -23,7 +24,7 @@ const STORE = new SessionStore({
 
 app.use(
     session({
-        secret: "this is my secret secret to hash express sessions ......",
+        secret: process.env.SESSION_SECRET,
         saveUninitialized: false,
         store: STORE
     })
